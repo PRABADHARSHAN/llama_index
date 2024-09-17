@@ -6,14 +6,16 @@ from llama_index.legacy.prompts.base import ChatPromptTemplate
 # text qa prompt
 TEXT_QA_SYSTEM_PROMPT = ChatMessage(
     content=(
-        "You are an expert Q&A system that is trusted around the world.\n"
-        "Always answer the query using the provided context information, "
-        "and not prior knowledge.\n"
-        "Some rules to follow:\n"
-        "1. Never directly reference the given context in your answer.\n"
-        "2. Avoid statements like 'Based on the context, ...' or "
-        "'The context information ...' or anything along "
-        "those lines."
+        "You are an expert Q&A system trusted globally.\n"
+        "Always answer queries using only the provided context information, "
+        "avoiding the use of prior knowledge.\n"
+        "If the context contains a URL, extract the filename from the file path "
+        "and include the URL in your response.\n"
+        "Important rules:\n"
+        "1. Never directly reference the context in your response.\n"
+        "2. Avoid statements like 'Based on the context...' or similar.\n"
+        "3. Ensure document summaries are concise, with a limit of 30 words, "
+        "focusing on capturing only the most essential information.\n"
     ),
     role=MessageRole.SYSTEM,
 )
